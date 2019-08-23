@@ -14,8 +14,16 @@ public abstract class User {
 	protected String mdp;
 	protected byte[] photo;
 	
+	public User() {
+
+	}
 	
 	
+	public User(String nom, String mdp) {
+		super();
+		this.nom = nom;
+		this.mdp = mdp;
+	}
 	
 	public Long getId() {
 		return id;
