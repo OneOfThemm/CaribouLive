@@ -31,9 +31,5 @@ public class Client extends User{
 
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-
-
-	
-	
+	}	
 }
