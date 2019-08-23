@@ -26,6 +26,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
+
 		//new Client (String nom,String mdp,String mail)
 		clientRepo.save(new Client("Thomas Shelby", "peaky", "thomas@peakyBlinder.com" ));
 		clientRepo.save(new Client("Arthur Shelby Junior", "blinder", "arthur.jr@peakyBlinder.com" ));
@@ -33,7 +34,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		clientRepo.save(new Client("Fitzgerald Grant", "president", "fitz.grant@maisonblanche.com" ));
 		clientRepo.save(new Client("Abby Whelan", "redhair", "awhelan@pope.com" ));
 		clientRepo.save(new Client("David Rosen", "justice", "dr.procureur@justice.com" ));
-		
+		clientRepo.save(new Client("Cyrus Beene", "power", "cyrusBeene@maisonblanche.com" ));
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
 		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));
@@ -41,6 +42,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		groupeRepo.save(new Groupe("MPokora", "mathieu", "Vive Robin des bois",1500,"mathieuPokora@hotmail.fr"));
 		groupeRepo.save(new Groupe("Bigflo & Oli", "mdp", "Bigflo & Oli remportent le prix Album de musiques urbaines (La vie de rêve) & Artiste masculin",800,"bigflo.Oli@hotmail.fr"));
 		groupeRepo.save(new Groupe("Les enfoires", "coluche", "Les Enfoirés est un regroupement d'artistes et personnalités publiques (principalement francophones) créé en 1985 pour chanter au profit de l'association caritative des Restos du Cœur, créé par Coluche.",1705.95,"enfoires@restocoeur.fr"));
+
 
 	
 	}
