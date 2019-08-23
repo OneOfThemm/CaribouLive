@@ -26,8 +26,13 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		clientRepo.save(new Client( ));
-		//String nom,String mdp,String mail,
+		//new Client (String nom,String mdp,String mail)
+		clientRepo.save(new Client("Thomas Shelby", "peaky", "thomas@peakyBlinder.com" ));
+		clientRepo.save(new Client("Arthur Shelby Junior", "blinder", "arthur.jr@peakyBlinder.com" ));
+		clientRepo.save(new Client("Olivia Pope", "scandal", "olivia.pope@pope.com" ));
+		clientRepo.save(new Client("Fitzgerald Grant", "president", "fitz.grant@maisonblanche.com" ));
+		//clientRepo.save(new Client("Fitzgerald Grant", "president", "fitz.grant@maisonblanche.com" ));
+		
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
 		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));

@@ -19,7 +19,7 @@ public class Client extends User{
 	super();
 }
 
-	public Client(String nom,String mdp,String mail, User user) {
+	public Client(String nom,String mdp,String mail) {
 	super(nom, mdp);
 	this.mail = mail;
 	
