@@ -2,6 +2,7 @@ package fr.solutec.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 
@@ -13,18 +14,15 @@ public class Client extends User{
 	
 // un user peut avoir plusieurs clients et un client découle d'un seul user.
 	
-	@ManyToOne
-	private User user;	
 	
-
-	public Client() {
+		public Client() {
 	super();
 }
 
-	public Client(String mail, User user) {
-	super();
+	public Client(String nom,String mdp,String mail, User user) {
+	super(nom, mdp);
 	this.mail = mail;
-	this.user = user;
+	
 }
 
 	public String getMail() {
@@ -35,14 +33,7 @@ public class Client extends User{
 		this.mail = mail;
 	}
 
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
 	
 	
 }
