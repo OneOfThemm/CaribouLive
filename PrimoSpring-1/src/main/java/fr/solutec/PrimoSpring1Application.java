@@ -5,13 +5,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.dao.ClientRepository;
 import fr.solutec.dao.GroupeRepository;
+import fr.solutec.entities.Client;
 import fr.solutec.entities.Groupe;
 
 @SpringBootApplication
 public class PrimoSpring1Application implements CommandLineRunner {
 	
-
+	@Autowired
+	private ClientRepository clientRepo;
 	
 	@Autowired
 	private GroupeRepository groupeRepo;
@@ -23,8 +26,8 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		
-		
+		clientRepo.save(new Client( ));
+		//String nom,String mdp,String mail,
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
 		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));
