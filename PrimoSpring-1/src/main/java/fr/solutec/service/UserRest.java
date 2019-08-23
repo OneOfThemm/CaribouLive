@@ -19,9 +19,5 @@ public class UserRest {
 	@Autowired
 	private UserRepository userRepos;
 	
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-	public User getUser(@PathVariable Long id){
-		return userRepos.findOne(id);
-	}
 
 }
