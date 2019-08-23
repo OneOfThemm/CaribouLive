@@ -21,12 +21,12 @@ public class ClientRest {
 	@Autowired
 	private ClientRepository clientRepo;
 	
-	//@RequestMapping(value = "/clients", method= RequestMethod.GET)
+	@RequestMapping(value = "/clients", method= RequestMethod.GET)
 	public List<Client> getAll(){		
 		return clientRepo.findAll();
 	}
 	
-	//@RequestMapping(value = "/clients", method= RequestMethod.GET)
+	@RequestMapping(value = "/client", method= RequestMethod.GET)
 	public List<Client> getClient (String name) {
 		return clientRepo.findByNom(name);
 	}
