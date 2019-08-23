@@ -1,0 +1,34 @@
+package fr.solutec.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import fr.solutec.dao.GroupeRepository;
+import fr.solutec.entities.Groupe;
+
+
+public class GroupRest {
+	
+	@Autowired
+	private GroupeRepository groupeRepos;
+	
+	public List<Groupe> getGroupe(){
+		return groupeRepos.findAll();
+	}
+	
+	public Groupe getGroupe (String name) {
+		return groupeRepos.findByNom(name);
+	}
+	
+	public Groupe save (@RequestBody Groupe g) {
+		return groupeRepos.save(g);
+	}
+	
+	public boolean deleteGroupe (@PathVariable Long id) {
+		groupeRepos.deleteById(id);
+		return true;
+	}
+
+}

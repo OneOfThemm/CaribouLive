@@ -1,5 +1,8 @@
 package fr.solutec.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Groupe extends User{
 
 	
@@ -16,8 +19,8 @@ public class Groupe extends User{
 
 	
 
-	public Groupe(String nom,String mdp, byte[] photo, String description, double cachet, String mail, byte[] son) {
-		super(nom, mdp, photo);		
+	public Groupe(String nom,String mdp, String description, double cachet, String mail, byte[] son) {
+		super(nom, mdp);		
 		this.description = description;
 		this.cachet = cachet;
 		this.mail = mail;
@@ -61,6 +64,13 @@ public class Groupe extends User{
 
 	public void setSon(byte[] son) {
 		this.son = son;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Groupe [id=" + id + ", nom=" + nom + ", description=" + description + ", cachet=" + cachet + ", mail=" + mail +" ]";
 	}
 	
 	
