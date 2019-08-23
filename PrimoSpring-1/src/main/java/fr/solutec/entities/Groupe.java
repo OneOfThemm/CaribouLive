@@ -2,10 +2,12 @@ package fr.solutec.entities;
 
 import javax.persistence.Entity;
 
+
 @Entity
 public class Groupe extends User{
 
-	
+
+		
 	private String description;
 	private double cachet;
 	private String mail;

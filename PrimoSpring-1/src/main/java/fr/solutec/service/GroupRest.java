@@ -3,12 +3,16 @@ package fr.solutec.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
 import fr.solutec.dao.GroupeRepository;
 import fr.solutec.entities.Groupe;
 
-
+@RestController
+@CrossOrigin("*")
 public class GroupRest {
 	
 	@Autowired
