@@ -12,6 +12,7 @@ public class Groupe extends User{
 	private double cachet;
 	private String mail;
 	private byte[] son;
+	private byte[] video;
 	
 	
 	public Groupe() {
@@ -21,12 +22,11 @@ public class Groupe extends User{
 
 	
 
-	public Groupe(String nom,String mdp, String description, double cachet, String mail, byte[] son) {
+	public Groupe(String nom,String mdp, String description, double cachet, String mail) {
 		super(nom, mdp);		
 		this.description = description;
 		this.cachet = cachet;
 		this.mail = mail;
-		this.son = son;
 	}
 
 	public String getDescription() {
@@ -66,6 +66,18 @@ public class Groupe extends User{
 
 	public void setSon(byte[] son) {
 		this.son = son;
+	}
+
+
+
+	public byte[] getVideo() {
+		return video;
+	}
+
+
+
+	public void setVideo(byte[] video) {
+		this.video = video;
 	}
 
 
