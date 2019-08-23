@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-public class Event {
+public abstract class Event {
 	
 	@Id @GeneratedValue
 	protected Long id;
