@@ -31,7 +31,8 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		clientRepo.save(new Client("Arthur Shelby Junior", "blinder", "arthur.jr@peakyBlinder.com" ));
 		clientRepo.save(new Client("Olivia Pope", "scandal", "olivia.pope@pope.com" ));
 		clientRepo.save(new Client("Fitzgerald Grant", "president", "fitz.grant@maisonblanche.com" ));
-		//clientRepo.save(new Client("Fitzgerald Grant", "president", "fitz.grant@maisonblanche.com" ));
+		clientRepo.save(new Client("Abby Whelan", "redhair", "awhelan@pope.com" ));
+		clientRepo.save(new Client("David Rosen", "justice", "dr.procureur@justice.com" ));
 		
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
