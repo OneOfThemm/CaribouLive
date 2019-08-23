@@ -13,7 +13,7 @@ import fr.solutec.entities.Groupe;
 
 @RestController
 @CrossOrigin("*")
-public class GroupRest {
+public class GroupeRest {
 	
 	@Autowired
 	private GroupeRepository groupeRepos;

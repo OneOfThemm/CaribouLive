@@ -2,13 +2,13 @@ package fr.solutec.entities;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-@Entity
+@MappedSuperclass
 public abstract class Event {
 	
 	@Id @GeneratedValue
