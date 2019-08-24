@@ -2,16 +2,15 @@ package fr.solutec.service;
 
 import java.io.Console;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import fr.solutec.dao.ClientRepository;
-
 import fr.solutec.entities.Client;
 
 @RestController
@@ -35,20 +34,12 @@ public class ClientRest {
 	public List<Client> getClientByName(@PathVariable String name) {
 		return clientRepo.findByNom(name);
 	}
-	
-	/*@RequestMapping(value = "/client/mail/{mail}", method = RequestMethod.GET)
-	public List<Client> getClientByMail(@PathVariable String mail) {
-		return clientRepo.findByMail(mail);
-	} */
 
+	@RequestMapping(value = "/client/mail/{email}", method = RequestMethod.GET)
+	public List<Client> getClientByMail(@PathVariable String email) {
+		return clientRepo.findByMail(email);
+	} 
 	
 	
-	
-	
-	@RequestMapping(value = "/client/mail/{mail}", method = RequestMethod.GET)
-	public List<Client> getClientByMail (@PathVariable String mail) {	
-			
-		return clientRepo.findByMail(mail);
-	}
 
 }
