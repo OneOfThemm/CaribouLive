@@ -1,5 +1,6 @@
 package fr.solutec.service;
 
+import java.io.Console;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,37 @@ import fr.solutec.entities.Client;
 @CrossOrigin("*")
 
 public class ClientRest {
-	
 	@Autowired
 	private ClientRepository clientRepo;
-	
-	@RequestMapping(value = "/clients", method= RequestMethod.GET)
-	public List<Client> getAll(){		
+
+	@RequestMapping(value = "/clients", method = RequestMethod.GET)
+	public List<Client> getAll() {
 		return clientRepo.findAll();
 	}
+
+	@RequestMapping(value = "/client/id/{id}", method = RequestMethod.GET)
+	public Client getClientById(@PathVariable Long id) {
+		return clientRepo.findById(id);
+	}
 	
-	@RequestMapping(value = "/client", method= RequestMethod.GET)
-	public List<Client> getClient (String name) {
+	@RequestMapping(value = "/client/name/{name}", method = RequestMethod.GET)
+	public List<Client> getClientByName(@PathVariable String name) {
 		return clientRepo.findByNom(name);
 	}
 	
+	/*@RequestMapping(value = "/client/mail/{mail}", method = RequestMethod.GET)
+	public List<Client> getClientByMail(@PathVariable String mail) {
+		return clientRepo.findByMail(mail);
+	} */
+
+	
+	
+	
+	
+	@RequestMapping(value = "/client/mail/{mail}", method = RequestMethod.GET)
+	public List<Client> getClientByMail (@PathVariable String mail) {	
+			
+		return clientRepo.findByMail(mail);
+	}
+
 }
