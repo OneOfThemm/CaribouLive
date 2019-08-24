@@ -1,6 +1,11 @@
 package fr.solutec.service;
 
 import java.io.Console;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import fr.solutec.dao.ClientRepository;
 import fr.solutec.entities.Client;
+
 
 @RestController
 @CrossOrigin("*")
@@ -39,6 +45,26 @@ public class ClientRest {
 	public List<Client> getClientByMail(@PathVariable String email) {
 		return clientRepo.findByMail(email);
 	} 
+	
+	@RequestMapping(value="/mail/{mail}", method=RequestMethod.GET) // Methode à l'arrache
+	public Client getRappelsNew(String mail) throws ParseException{
+		
+		Client c= new Client();
+		c= null;	
+		
+		List<Client> listcli = new ArrayList<Client>();
+		listcli = clientRepo.findAll();			
+		
+		for (Client client : listcli) {
+			if (client.getMail().equals(mail)) {
+				c=client;
+			
+				System.out.println(c.toString());
+			}
+	
+		}
+		return c;
+	}
 	
 	
 
