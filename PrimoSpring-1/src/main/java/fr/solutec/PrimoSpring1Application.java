@@ -100,7 +100,9 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		b.setBar(bar1);
 		b.setGenre(genre1);
 		
-		battleGroupRepo.save(b);
+		battleGroupRepo.save(b);	
+		
+		
 	
 	}
 	

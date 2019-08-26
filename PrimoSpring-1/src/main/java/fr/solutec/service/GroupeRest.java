@@ -37,8 +37,7 @@ public class GroupeRest {
 	public Groupe getGroupebyMail(@PathVariable String email) {
 		return groupeRepos.findByMail(email);
 	} 	
-	
-	
+		
 	
 	public boolean deleteGroupe (@PathVariable Long id) {
 		groupeRepos.deleteById(id);
