@@ -11,7 +11,7 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
 	
 	public List<Client> findByNom (@PathVariable String nom);	
-	public List<Client> findByMail(String mail);		
+	public Client findByMail(String mail);		
 	public Client findById (@PathVariable Long id);	
 	public Client deleteById (@PathVariable Long id);
 	
