@@ -38,35 +38,47 @@ public class BattleGroupeRest {
 		return battleGroupRepos.getBattleGroupeByBarId(id);
 	}
 	
-	@RequestMapping(value = "/battlegroupes/futur/{id}", method = RequestMethod.GET)
-	public List<BattleGroupe> MyFuturEvents (@PathVariable Long id){
-		Date d = new Date();
-		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
-		List<BattleGroupe> myFuturEvents = new ArrayList<BattleGroupe>();
-		
-		for (BattleGroupe bg : myEvents) {
-			if (  ( bg.getDateEvent() ).after(d) ) {
-				myFuturEvents.add(bg);
-			};
-		};		
-		return myFuturEvents;
-	}
+
 
 	@RequestMapping(value = "/battlegroupes/old/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyOldEvents (@PathVariable Long id){
 		Date d = new Date();
 		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
 		List<BattleGroupe> myOldEvents = new ArrayList<BattleGroupe>();
-		
+		int nbEvent = 3;		
+				
 		for (BattleGroupe bg : myEvents) {
-			if (  ( bg.getDateEvent() ).before(d) ) {
+			if (myOldEvents.size()  >= nbEvent) {
+				break;
+				
+			} else if (bg.getDateEvent().before(d)) {
 				myOldEvents.add(bg);
-			};
-		};		
+			}
+		}
 		return myOldEvents;
-	}
-	
 
+	}
+
+	
+	@RequestMapping(value = "/battlegroupes/futur/{id}", method = RequestMethod.GET)
+	public List<BattleGroupe> MyFuturEvents (@PathVariable Long id){
+		Date d = new Date();
+		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
+		List<BattleGroupe> myFuturEvents = new ArrayList<BattleGroupe>();
+		int nbEvent = 3;		
+				
+		for (BattleGroupe bg : myEvents) {
+			if (myFuturEvents.size()  >= nbEvent) {
+				break;
+				
+			} else if (bg.getDateEvent().before(d)) {
+				myFuturEvents.add(bg);
+			}
+		}
+		
+		return myFuturEvents;
+
+	}
 	
 
 }
