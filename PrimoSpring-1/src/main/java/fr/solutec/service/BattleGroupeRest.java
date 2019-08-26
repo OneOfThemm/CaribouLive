@@ -38,9 +38,6 @@ public class BattleGroupeRest {
 		return battleGroupRepos.getBattleGroupeByBarId(id);
 	}
 	
-	public void coucou (){
-		
-	}
 
 	@RequestMapping(value = "/battlegroupes/old/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyOldEvents (@PathVariable Long id){
