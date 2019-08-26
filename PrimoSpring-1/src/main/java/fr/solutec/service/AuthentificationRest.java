@@ -28,6 +28,7 @@ public class AuthentificationRest {
 	private BarRepository barRepo;
 	@Autowired
 	private GroupeRepository groupeRepo;
+
 	@RequestMapping(value = "/connexion/type/{mail:.+}", method = RequestMethod.GET)
 	public String getTypeUser(@PathVariable String mail) {
 		String type = "";
@@ -66,7 +67,55 @@ public class AuthentificationRest {
 			type = "groupe";
 		} else {
 			type = "unknown";
-		}	
+		}
 		return type;
+	}
+
+	@RequestMapping(value = "/connexion/request/{mail:.+}/{mdp}", method = RequestMethod.GET)
+	public boolean getAuthentified(@PathVariable String mail, @PathVariable String mdp) {
+		boolean connect = false;
+		Client c = new Client();
+		c = null;
+		Bar b = new Bar();
+		b = null;
+		Groupe g = new Groupe();
+		g = null;
+		try {
+			c = clientRepo.findByMail(mail);
+
+		} catch (Exception e) {
+			System.err.println("erreur : " + e);
+		}
+		System.out.println("bonsoir");
+
+		try {
+			b = barRepo.findByMail(mail);
+
+		} catch (Exception e) {
+			System.err.println("erreur : " + e);
+		}
+		try {
+			g = groupeRepo.findByMail(mail);
+		} catch (Exception e) {
+			System.err.println("erreur : " + e);
+		}
+
+		if (c != null) {
+			if (c.getMdp().equals(mdp)) {
+				return true;
+			}
+		} else if (b != null) {
+			if (b.getMdp().equals(mdp)) {
+				return true;
+			}
+
+		} else if (g != null) {
+			if (g.getMdp().equals(mdp)) {
+				return true;
+			}
+		} else {
+			return false;
+		}
+		return connect;
 	}
 }
