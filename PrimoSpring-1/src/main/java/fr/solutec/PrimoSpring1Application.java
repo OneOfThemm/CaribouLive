@@ -5,19 +5,27 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.dao.BarRepository;
 import fr.solutec.dao.ClientRepository;
 import fr.solutec.dao.GroupeRepository;
 import fr.solutec.entities.Client;
+import fr.solutec.entities.Genre;
 import fr.solutec.entities.Groupe;
 
 @SpringBootApplication
 public class PrimoSpring1Application implements CommandLineRunner {
+	@Autowired
+	private BarRepository barRepo;
+	
 	
 	@Autowired
 	private ClientRepository clientRepo;
 	
 	@Autowired
 	private GroupeRepository groupeRepo;
+	
+	//@Autowired
+	//private GenreRepository genreRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PrimoSpring1Application.class, args);
@@ -26,7 +34,9 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-
+		
+		//barRepo.save(new Bar(""));
+		
 		//new Client (String nom,String mdp,String mail)
 		clientRepo.save(new Client("Thomas Shelby", "peaky", "thomaspeakyBlindercom" ));
 		clientRepo.save(new Client("Arthur Shelby Junior", "blinder", "arthur.jr@peakyBlinder.com" ));
