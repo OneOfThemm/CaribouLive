@@ -10,11 +10,6 @@ import fr.solutec.entities.Event;
 
 
 public interface EventRepository extends JpaRepository<Event, Long>{
-	public List<Event> findByNom (String nom);
-	
-	public List<Event> findByDateEventBefore (Date date); 
-	public List<Event> findByDateEventAfter (Date date); 
 
-	//public List<Event> findByVisibleClient (Boolean );
 
 }
