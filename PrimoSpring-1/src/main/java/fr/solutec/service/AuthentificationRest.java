@@ -24,9 +24,10 @@ import fr.solutec.entities.Groupe;
 public class AuthentificationRest {
 	@Autowired
 	private ClientRepository clientRepo;
-	private BarRepository barRepoS;
-	private GroupeRepository groupeRepoS;
-
+	@Autowired
+	private BarRepository barRepo;
+	@Autowired
+	private GroupeRepository groupeRepo;
 	@RequestMapping(value = "/connexion/type/{mail:.+}", method = RequestMethod.GET)
 	public String getTypeUser(@PathVariable String mail) {
 		String type = "";
@@ -36,35 +37,36 @@ public class AuthentificationRest {
 		b = null;
 		Groupe g = new Groupe();
 		g = null;
-		try {			
-			b = barRepoS.findByMail(mail);	
+		try {
 			c = clientRepo.findByMail(mail);
-					
-			g = groupeRepoS.findByMail(mail);
 
 		} catch (Exception e) {
 			System.err.println("erreur : " + e);
 		}
-		if (b != null) {
-			type = "bar";
-		} else {
-			if (c != null) {
-				type = "client";
+		System.out.println("bonsoir");
 
-			} else {
-				if (g != null) {
-					type = "groupe";
-				} else {
-					type = "unknown";
-				}
-			}
+		try {
+			b = barRepo.findByMail(mail);
+
+		} catch (Exception e) {
+			System.err.println("erreur : " + e);
 		}
-		/*
-		 * if (groupeRepo.findByMail(mail) != null) { type = "groupe"; } else { if
-		 * (barRepo.findByMail(mail) != null) { type = "bar"; } else { if
-		 * (clientRepo.findByMail(mail) != null) { type = "client"; } else { type =
-		 * "unknown"; } } }
-		 */
+		try {
+			g = groupeRepo.findByMail(mail);
+		} catch (Exception e) {
+			System.err.println("erreur : " + e);
+		}
+
+		if (c != null) {
+			type = "client";
+		} else if (b != null) {
+			type = "bar";
+
+		} else if (g != null) {
+			type = "groupe";
+		} else {
+			type = "unknown";
+		}	
 		return type;
 	}
 }
