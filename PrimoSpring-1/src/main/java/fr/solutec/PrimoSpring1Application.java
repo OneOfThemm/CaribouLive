@@ -56,9 +56,6 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		barRepo.save(bar2);
 		barRepo.save(bar3);
 
-		barRepo.save(new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200));
-		barRepo.save(new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50));
-		barRepo.save(new Bar("Olympia", "capucines", "Vivendi", "0144649021", "olympia@bar.fr", 1772));
 
 		
 		//new Client (String nom,String mdp,String mail)

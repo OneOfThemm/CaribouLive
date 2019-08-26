@@ -21,15 +21,24 @@ public class AuthentificationRest {
 	private ClientRepository clientRepo;
 	private BarRepository barRepo;
 	private GroupeRepository groupeRepo;
-	
-/*	@RequestMapping(value = "/connexion/type", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/connexion/type", method = RequestMethod.GET)
 	public String getTypeUser(String mail) {
-		String type ="";
-		
-		if (clientRepo.findByMail(mail)!=null);
-		
+		String type = "";
+
+		if (clientRepo.findByMail(mail) != null) {
+			type = "client";
+		} else {
+			if (clientRepo.findByMail(mail) != null) {
+
+			} else {
+				if (clientRepo.findByMail(mail) != null) {
+
+				}
+			}
+		}
+
 		return type;
-		
-		
-	}*/
+
+	}
 }

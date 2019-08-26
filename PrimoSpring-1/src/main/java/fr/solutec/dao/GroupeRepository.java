@@ -9,4 +9,6 @@ public interface GroupeRepository extends JpaRepository<Groupe, Long> {
 
 	public Groupe findByNom (String nom);
 	public Groupe deleteById (@PathVariable Long id);
+	public Groupe findByMail(String mail);		
+
 }
