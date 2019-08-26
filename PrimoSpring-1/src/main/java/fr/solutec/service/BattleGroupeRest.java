@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.BattleGroupeRepository;
 import fr.solutec.entities.BattleGroupe;
-import fr.solutec.entities.Event;
+
 
 @RestController
 @CrossOrigin("*")
