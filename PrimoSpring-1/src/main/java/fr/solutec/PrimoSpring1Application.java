@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import fr.solutec.dao.BarRepository;
 import fr.solutec.dao.ClientRepository;
+import fr.solutec.dao.GenreRepository;
 import fr.solutec.dao.GroupeRepository;
 import fr.solutec.entities.Bar;
 import fr.solutec.entities.Client;
@@ -25,8 +26,8 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	@Autowired
 	private GroupeRepository groupeRepo;
 	
-	//@Autowired
-	//private GenreRepository genreRepo;
+	@Autowired
+	private GenreRepository genreRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PrimoSpring1Application.class, args);
@@ -48,6 +49,23 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		clientRepo.save(new Client("Abby Whelan", "redhair", "awhelan@pope.com" ));
 		clientRepo.save(new Client("David Rosen", "justice", "dr.procureur@justice.com" ));
 		clientRepo.save(new Client("Cyrus Beene", "power", "cyrusBeene@maisonblanche.com" ));
+		
+		
+		// Genre(String nom)
+		genreRepo.save(new Genre ("blues"));
+		genreRepo.save(new Genre ("disco"));
+		genreRepo.save(new Genre ("funck"));
+		genreRepo.save(new Genre ("rap"));
+		genreRepo.save(new Genre ("rock"));
+		genreRepo.save(new Genre ("country"));
+		genreRepo.save(new Genre ("folk"));
+		genreRepo.save(new Genre ("jazz"));
+		genreRepo.save(new Genre ("soul"));
+		genreRepo.save(new Genre ("raï"));
+		genreRepo.save(new Genre ("reggae"));
+		genreRepo.save(new Genre ("salsa"));
+		genreRepo.save(new Genre ("techno"));
+		
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
 		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));
