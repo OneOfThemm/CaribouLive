@@ -1,5 +1,7 @@
 package fr.solutec.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.BattleGroupeRepository;
 import fr.solutec.entities.BattleGroupe;
+import fr.solutec.entities.Event;
 
 @RestController
 @CrossOrigin("*")
@@ -19,6 +22,11 @@ public class BattleGroupeRest {
 	@RequestMapping(value = "/battlegroupe", method = RequestMethod.POST)
 	public BattleGroupe save(@RequestBody BattleGroupe p){
 		return battleGroupRepos.save(p);
+	}
+	
+	@RequestMapping(value = "/battlegroupes", method = RequestMethod.GET)
+	public List<BattleGroupe> getBattleGroupe(@RequestBody BattleGroupe p){
+		return battleGroupRepos.findAll();
 	}
 
 }

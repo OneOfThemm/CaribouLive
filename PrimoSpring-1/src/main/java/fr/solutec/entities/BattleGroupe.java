@@ -1,5 +1,7 @@
 package fr.solutec.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -20,12 +22,11 @@ public class BattleGroupe extends Event {
 		super();
 	}
 	
-	public BattleGroupe(int cahchetmax, int nbgroupes, int prix, Bar bar, Genre genre) {
-		super();
+	public BattleGroupe(Date dateEvent, String nom, String description,int cahchetmax, int nbgroupes, int prix) {
+		super(dateEvent,nom,description);
 		this.cahchetmax = cahchetmax;
 		this.nbgroupes = nbgroupes;
 		this.prix = prix;
-		this.bar = bar;
 	}
 
 	

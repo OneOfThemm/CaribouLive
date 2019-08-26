@@ -30,6 +30,7 @@ public abstract class Event {
 		this.dateEvent = dateEvent;
 		this.nom = nom;
 		this.description = description;
+		this.visibleClient =false;
 	}
 
 
