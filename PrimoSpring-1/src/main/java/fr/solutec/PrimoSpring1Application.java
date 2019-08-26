@@ -33,12 +33,11 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Autowired
 	private GenreRepository genreRepo;
-<<<<<<< HEAD
+
 	
 	@Autowired
 	private BattleGroupeRepository battleGroupRepo;
-=======
->>>>>>> branch 'master' of https://github.com/OneOfThemm/CaribouLive
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(PrimoSpring1Application.class, args);
@@ -48,7 +47,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// new Bar (String nom, String mdp,String nomGerant, String tel, String mail, int capacitemax)
-<<<<<<< HEAD
+
 		Bar bar1 = new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200);
 		Bar bar2 = new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50);
 		Bar bar3 = new Bar("Olympia", "capucines", "Vivendi", "06 44 64 90 21", "olympia@bar.fr", 1772);
@@ -56,11 +55,11 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		barRepo.save(bar1);
 		barRepo.save(bar2);
 		barRepo.save(bar3);
-=======
+
 		barRepo.save(new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200));
 		barRepo.save(new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50));
 		barRepo.save(new Bar("Olympia", "capucines", "Vivendi", "0144649021", "olympia@bar.fr", 1772));
->>>>>>> branch 'master' of https://github.com/OneOfThemm/CaribouLive
+
 		
 		//new Client (String nom,String mdp,String mail)
 		clientRepo.save(new Client("Thomas Shelby", "peaky", "thomaspeakyBlindercom" ));
