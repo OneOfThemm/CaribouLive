@@ -43,7 +43,7 @@ public class ClientRest {
 	}
 
 	@RequestMapping(value = "/client/mail/{email:.+}", method = RequestMethod.GET)
-	public List<Client> getClientByMail(@PathVariable String email) {
+	public Client getClientByMail(@PathVariable String email) {
 		return clientRepo.findByMail(email);
 	} 	
 	
