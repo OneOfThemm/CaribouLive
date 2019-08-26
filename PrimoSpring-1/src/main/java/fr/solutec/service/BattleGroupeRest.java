@@ -43,6 +43,7 @@ public class BattleGroupeRest {
 	@RequestMapping(value = "/battlegroupes/old/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyOldEvents (@PathVariable Long id){
 		Date d = new Date();
+		Date yesterday = new Date(System.currentTimeMillis() - 1000L * 60L * 60L * 24L);
 		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
 		List<BattleGroupe> myOldEvents = new ArrayList<BattleGroupe>();
 		int nbEvent = 3;		
@@ -51,7 +52,7 @@ public class BattleGroupeRest {
 			if (myOldEvents.size()  >= nbEvent) {
 				break;
 				
-			} else if (bg.getDateEvent().before(d)) {
+			} else if (bg.getDateEvent().before(yesterday)) {
 				myOldEvents.add(bg);
 			}
 		}
