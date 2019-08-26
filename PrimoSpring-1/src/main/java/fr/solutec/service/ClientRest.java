@@ -1,6 +1,7 @@
 package fr.solutec.service;
 
 import java.io.Console;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,10 +42,10 @@ public class ClientRest {
 		return clientRepo.findByNom(name);
 	}
 
-	@RequestMapping(value = "/client/mail/{email}", method = RequestMethod.GET)
+	@RequestMapping(value = "/client/mail/{email:.+}", method = RequestMethod.GET)
 	public List<Client> getClientByMail(@PathVariable String email) {
 		return clientRepo.findByMail(email);
-	} 
+	} 	
 	
 	@RequestMapping(value="/mail/{mail}", method=RequestMethod.GET) // Methode à l'arrache
 	public Client getRappelsNew(String mail) throws ParseException{
