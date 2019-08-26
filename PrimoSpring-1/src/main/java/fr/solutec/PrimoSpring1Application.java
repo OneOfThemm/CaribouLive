@@ -104,20 +104,20 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		battleGroupRepo.save(b);
 		
 		BattleGroupe b2 = new BattleGroupe(d.parse("20/09/2019"),"aaa","aaaaaaaaaaaaaa",300,8,5);
-		b.setBar(bar1);
-		b.setGenre(genre1);
+		b2.setBar(bar1);
+		b2.setGenre(genre1);
 		
 		battleGroupRepo.save(b2);
 		
 		BattleGroupe b3 = new BattleGroupe(d.parse("20/12/2019"),"bbb","bbbbbbbbbb",900,15,10);
-		b.setBar(bar1);
-		b.setGenre(genre1);
+		b3.setBar(bar1);
+		b3.setGenre(genre1);
 		
 		battleGroupRepo.save(b3);	
 		
 		BattleGroupe b4 = new BattleGroupe(d.parse("20/01/2019"),"ccc","ccccccccccccc",700,5,12);
-		b.setBar(bar1);
-		b.setGenre(genre1);
+		b4.setBar(bar1);
+		b4.setGenre(genre1);
 		
 		battleGroupRepo.save(b4);	
 		
