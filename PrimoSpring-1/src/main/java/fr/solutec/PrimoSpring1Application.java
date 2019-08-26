@@ -1,5 +1,7 @@
 package fr.solutec;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +17,6 @@ import fr.solutec.dao.GroupeRepository;
 import fr.solutec.entities.Bar;
 import fr.solutec.entities.BattleGroupe;
 import fr.solutec.entities.Client;
-import fr.solutec.entities.Event;
 import fr.solutec.entities.Genre;
 import fr.solutec.entities.Groupe;
 
@@ -46,6 +47,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
+		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
 		// new Bar (String nom, String mdp,String nomGerant, String tel, String mail, int capacitemax)
 
 		Bar bar1 = new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200);
@@ -73,7 +75,6 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		genreRepo.save(new Genre ("disco"));
 		genreRepo.save(new Genre ("funck"));
 		genreRepo.save(new Genre ("rap"));
-		genreRepo.save(new Genre ("rock"));
 		genreRepo.save(new Genre ("country"));
 		genreRepo.save(new Genre ("folk"));
 		genreRepo.save(new Genre ("jazz"));
@@ -91,16 +92,34 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		groupeRepo.save(new Groupe("Bigflo & Oli", "mdp", "Bigflo & Oli remportent le prix Album de musiques urbaines (La vie de rêve) & Artiste masculin",800,"bigflo.Oli@hotmail.fr"));
 		groupeRepo.save(new Groupe("Les enfoires", "coluche", "Les Enfoirés est un regroupement d'artistes et personnalités publiques (principalement francophones) créé en 1985 pour chanter au profit de l'association caritative des Restos du Cœur, créé par Coluche.",1705.95,"enfoires@restocoeur.fr"));
 
-		Genre genre1 = new Genre("Rock");
+		Genre genre1 = new Genre("rock");
 		genreRepo.save(genre1);
 		
-		Date date = new Date();
+	//	Date date = new Date();
 		
-		BattleGroupe b = new BattleGroupe(date,"test","testtesttesttesttest",1000,10,5);
+		BattleGroupe b = new BattleGroupe(d.parse("14/07/2019"),"test","testtesttesttesttest",1000,10,5);
 		b.setBar(bar1);
 		b.setGenre(genre1);
 		
-		battleGroupRepo.save(b);	
+		battleGroupRepo.save(b);
+		
+		BattleGroupe b2 = new BattleGroupe(d.parse("20/09/2019"),"aaa","aaaaaaaaaaaaaa",300,8,5);
+		b.setBar(bar3);
+		b.setGenre(genre1);
+		
+		battleGroupRepo.save(b2);
+		
+		BattleGroupe b3 = new BattleGroupe(d.parse("20/12/2019"),"bbb","bbbbbbbbbb",900,15,10);
+		b.setBar(bar2);
+		b.setGenre(genre1);
+		
+		battleGroupRepo.save(b3);	
+		
+		BattleGroupe b4 = new BattleGroupe(d.parse("20/01/2019"),"ccc","ccccccccccccc",700,5,12);
+		b.setBar(bar2);
+		b.setGenre(genre1);
+		
+		battleGroupRepo.save(b3);	
 		
 		
 	

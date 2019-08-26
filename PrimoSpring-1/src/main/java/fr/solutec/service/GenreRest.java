@@ -17,7 +17,7 @@ public class GenreRest {
 	@Autowired
 	private GenreRepository genreGroupRepos;
 	
-	@RequestMapping(value = "/genresnoms", method = RequestMethod.GET)
+	@RequestMapping(value = "/genres", method = RequestMethod.GET)
 	public List<Genre> getGenre(){
 		return genreGroupRepos.findAll();
 	}
