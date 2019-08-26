@@ -33,9 +33,12 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Autowired
 	private GenreRepository genreRepo;
+<<<<<<< HEAD
 	
 	@Autowired
 	private BattleGroupeRepository battleGroupRepo;
+=======
+>>>>>>> branch 'master' of https://github.com/OneOfThemm/CaribouLive
 
 	public static void main(String[] args) {
 		SpringApplication.run(PrimoSpring1Application.class, args);
@@ -45,6 +48,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// new Bar (String nom, String mdp,String nomGerant, String tel, String mail, int capacitemax)
+<<<<<<< HEAD
 		Bar bar1 = new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200);
 		Bar bar2 = new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50);
 		Bar bar3 = new Bar("Olympia", "capucines", "Vivendi", "06 44 64 90 21", "olympia@bar.fr", 1772);
@@ -52,6 +56,11 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		barRepo.save(bar1);
 		barRepo.save(bar2);
 		barRepo.save(bar3);
+=======
+		barRepo.save(new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200));
+		barRepo.save(new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50));
+		barRepo.save(new Bar("Olympia", "capucines", "Vivendi", "0144649021", "olympia@bar.fr", 1772));
+>>>>>>> branch 'master' of https://github.com/OneOfThemm/CaribouLive
 		
 		//new Client (String nom,String mdp,String mail)
 		clientRepo.save(new Client("Thomas Shelby", "peaky", "thomaspeakyBlindercom" ));
@@ -61,6 +70,23 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		clientRepo.save(new Client("Abby Whelan", "redhair", "awhelan@pope.com" ));
 		clientRepo.save(new Client("David Rosen", "justice", "dr.procureur@justice.com" ));
 		clientRepo.save(new Client("Cyrus Beene", "power", "cyrusBeene@maisonblanche.com" ));
+		
+		
+		// Genre(String nom)
+		genreRepo.save(new Genre ("blues"));
+		genreRepo.save(new Genre ("disco"));
+		genreRepo.save(new Genre ("funck"));
+		genreRepo.save(new Genre ("rap"));
+		genreRepo.save(new Genre ("rock"));
+		genreRepo.save(new Genre ("country"));
+		genreRepo.save(new Genre ("folk"));
+		genreRepo.save(new Genre ("jazz"));
+		genreRepo.save(new Genre ("soul"));
+		genreRepo.save(new Genre ("raï"));
+		genreRepo.save(new Genre ("reggae"));
+		genreRepo.save(new Genre ("salsa"));
+		genreRepo.save(new Genre ("techno"));
+		
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
 		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));
