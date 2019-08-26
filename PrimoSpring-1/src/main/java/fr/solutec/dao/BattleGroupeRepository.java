@@ -16,6 +16,7 @@ public interface BattleGroupeRepository extends JpaRepository<BattleGroupe, Long
 	public List<BattleGroupe> findByDateEventAfter (Date date);
 	
 	public List<BattleGroupe> getBattleGroupeByBarId (@PathVariable Long id);
+
 	public List<BattleGroupe> getBattleGroupeByGenreNom (@PathVariable String nom);
 	
 	
