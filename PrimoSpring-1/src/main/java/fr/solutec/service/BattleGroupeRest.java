@@ -25,7 +25,7 @@ public class BattleGroupeRest {
 	}
 	
 	@RequestMapping(value = "/battlegroupes", method = RequestMethod.GET)
-	public List<BattleGroupe> getBattleGroupe(@RequestBody BattleGroupe p){
+	public List<BattleGroupe> getBattleGroupe(){
 		return battleGroupRepos.findAll();
 	}
 
