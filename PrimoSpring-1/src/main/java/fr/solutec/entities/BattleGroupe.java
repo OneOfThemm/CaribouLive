@@ -1,7 +1,7 @@
 package fr.solutec.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class BattleGroupe extends Event {
@@ -10,27 +10,22 @@ public class BattleGroupe extends Event {
 	private int nbgroupes;
 	private int prix;
 	
-	/*@OneToMany
+	@ManyToOne
 	private Bar bar;
 	
-	@OneToMany
-	private Event event;
-	
-	@OneToMany
-	private Genre genre;*/
+	@ManyToOne
+	private Genre genre;
 	
 	public BattleGroupe() {
 		super();
 	}
 	
-	public BattleGroupe(int cahchetmax, int nbgroupes, int prix, Bar bar, Event event, Genre genre) {
+	public BattleGroupe(int cahchetmax, int nbgroupes, int prix, Bar bar, Genre genre) {
 		super();
 		this.cahchetmax = cahchetmax;
 		this.nbgroupes = nbgroupes;
 		this.prix = prix;
-		/*this.bar = bar;
-		this.event = event;
-		this.genre = genre;*/
+		this.bar = bar;
 	}
 
 	
@@ -58,20 +53,12 @@ public class BattleGroupe extends Event {
 		this.prix = prix;
 	}
 
-	/*public Bar getBar() {
+	public Bar getBar() {
 		return bar;
 	}
 
 	public void setBar(Bar bar) {
 		this.bar = bar;
-	}
-
-	public Event getEvent() {
-		return event;
-	}
-
-	public void setEvent(Event event) {
-		this.event = event;
 	}
 
 	public Genre getGenre() {
@@ -80,7 +67,7 @@ public class BattleGroupe extends Event {
 
 	public void setGenre(Genre genre) {
 		this.genre = genre;
-	}*/
+	}
 	
 	
 	
