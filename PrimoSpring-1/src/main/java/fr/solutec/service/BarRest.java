@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.BarRepository;
 import fr.solutec.entities.Bar;
+import fr.solutec.entities.User;
 
 
 @RestController
@@ -19,7 +20,7 @@ public class BarRest {
 	private BarRepository barRepos;
 	
 	@RequestMapping(value = "/bars", method = RequestMethod.GET)
-	public List<Bar> getPersonnes(){
+	public List<User> getPersonnes(){
 		return barRepos.findAll();
 	}
 }

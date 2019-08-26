@@ -16,8 +16,8 @@ public class Bar extends User{
 		super();
 	}
 
-	public Bar(String nomGerant, String tel, String mail, int capacitemax) {
-		super();
+	public Bar(String nom, String mdp,String nomGerant, String tel, String mail, int capacitemax) {
+		super(nom, mdp);
 		this.nomGerant = nomGerant;
 		this.tel = tel;
 		this.mail = mail;

@@ -5,19 +5,29 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import fr.solutec.dao.BarRepository;
 import fr.solutec.dao.ClientRepository;
+import fr.solutec.dao.GenreRepository;
 import fr.solutec.dao.GroupeRepository;
+import fr.solutec.entities.Bar;
 import fr.solutec.entities.Client;
+import fr.solutec.entities.Genre;
 import fr.solutec.entities.Groupe;
 
 @SpringBootApplication
 public class PrimoSpring1Application implements CommandLineRunner {
+	@Autowired
+	private BarRepository barRepo;
+	
 	
 	@Autowired
 	private ClientRepository clientRepo;
 	
 	@Autowired
 	private GroupeRepository groupeRepo;
+	
+	@Autowired
+	private GenreRepository genreRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(PrimoSpring1Application.class, args);
@@ -26,7 +36,11 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-
+		// new Bar (String nom, String mdp,String nomGerant, String tel, String mail, int capacitemax)
+		barRepo.save(new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200));
+		barRepo.save(new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50));
+		barRepo.save(new Bar("Olympia", "capucines", "Vivendi", "0144649021", "olympia@bar.fr", 1772));
+		
 		//new Client (String nom,String mdp,String mail)
 		clientRepo.save(new Client("Thomas Shelby", "peaky", "thomaspeakyBlindercom" ));
 		clientRepo.save(new Client("Arthur Shelby Junior", "blinder", "arthur.jr@peakyBlinder.com" ));
@@ -35,6 +49,23 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		clientRepo.save(new Client("Abby Whelan", "redhair", "awhelan@pope.com" ));
 		clientRepo.save(new Client("David Rosen", "justice", "dr.procureur@justice.com" ));
 		clientRepo.save(new Client("Cyrus Beene", "power", "cyrusBeene@maisonblanche.com" ));
+		
+		
+		// Genre(String nom)
+		genreRepo.save(new Genre ("blues"));
+		genreRepo.save(new Genre ("disco"));
+		genreRepo.save(new Genre ("funck"));
+		genreRepo.save(new Genre ("rap"));
+		genreRepo.save(new Genre ("rock"));
+		genreRepo.save(new Genre ("country"));
+		genreRepo.save(new Genre ("folk"));
+		genreRepo.save(new Genre ("jazz"));
+		genreRepo.save(new Genre ("soul"));
+		genreRepo.save(new Genre ("raï"));
+		genreRepo.save(new Genre ("reggae"));
+		genreRepo.save(new Genre ("salsa"));
+		genreRepo.save(new Genre ("techno"));
+		
 		
 		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
 		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));
