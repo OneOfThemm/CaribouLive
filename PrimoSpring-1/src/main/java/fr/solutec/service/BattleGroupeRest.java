@@ -136,7 +136,6 @@ public class BattleGroupeRest {
 			}			
 		}
 		return futurEvents;
->>>>>>> branch 'master' of https://github.com/OneOfThemm/CaribouLive
 	}
 
 }
