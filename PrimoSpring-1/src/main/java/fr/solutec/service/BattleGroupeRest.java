@@ -131,5 +131,14 @@ public class BattleGroupeRest {
 		}
 		return futurEvents;
 	}
+	
+	@RequestMapping(value ="/battlegroupeedit", method = RequestMethod.POST)
+	public BattleGroupe updateevent(@RequestBody BattleGroupe battleGroupe) {
+		Long i = battleGroupe.getId();
+		BattleGroupe b = battleGroupRepos.findById(i);
+		b=battleGroupRepos.save(battleGroupe);
+		return b;
+	}
 
+	
 }

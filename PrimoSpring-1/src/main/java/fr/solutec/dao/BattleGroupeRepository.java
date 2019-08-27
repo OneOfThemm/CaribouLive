@@ -14,6 +14,7 @@ import fr.solutec.entities.BattleGroupe;
 
 public interface BattleGroupeRepository extends JpaRepository<BattleGroupe, Long>{
 	public List<BattleGroupe> findByNom (String nom);
+	public BattleGroupe findById(Long id);
 	
 	public List<BattleGroupe> findByDateEventBefore (Date date); 
 	public List<BattleGroupe> findByDateEventAfter (Date date);
