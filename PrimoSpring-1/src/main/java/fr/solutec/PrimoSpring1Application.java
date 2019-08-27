@@ -49,9 +49,9 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		DateFormat d = new SimpleDateFormat("dd/MM/yyyy");
 		// new Bar (String nom, String mdp,String nomGerant, String tel, String mail, int capacitemax)
-
-		Bar bar1 = new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200);
-		Bar bar2 = new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50);
+		
+		Bar bar1 = new Bar("Esic", "paris550", "Joel B", "0153901520", "info@esic.fr", 50);
+		Bar bar2 = new Bar("BREIZH CAFÉ", "bzh", "Les bretons", "0142339778", "breihcafe@bar.bzh", 200);
 		Bar bar3 = new Bar("Olympia", "capucines", "Vivendi", "06 44 64 90 21", "olympia@bar.fr", 1772);
 		
 		barRepo.save(bar1);
