@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BattleGroupe extends Event {
 	
-	private int cahchetmax;
+	private int cachetmax;
 	private int nbgroupes;
 	private int prix;
 	
@@ -24,18 +24,18 @@ public class BattleGroupe extends Event {
 	
 	public BattleGroupe(Date dateEvent, String nom, String description,int cahchetmax, int nbgroupes, int prix) {
 		super(dateEvent,nom,description);
-		this.cahchetmax = cahchetmax;
+		this.cachetmax = cahchetmax;
 		this.nbgroupes = nbgroupes;
 		this.prix = prix;
 	}
 
 	
-	public int getCahchetmax() {
-		return cahchetmax;
+	public int getCachetmax() {
+		return cachetmax;
 	}
 
-	public void setCahchetmax(int cahchetmax) {
-		this.cahchetmax = cahchetmax;
+	public void setCachetmax(int cahchetmax) {
+		this.cachetmax = cahchetmax;
 	}
 
 	public int getNbgroupes() {

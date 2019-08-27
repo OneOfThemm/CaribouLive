@@ -2,20 +2,19 @@ package fr.solutec.entities;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.CreationTimestamp;
 
 @MappedSuperclass
 public abstract class Event {
 	
 	@Id @GeneratedValue
 	protected Long id;
-	
-	@CreationTimestamp
+	@Temporal (TemporalType.DATE)
 	protected Date dateEvent;
 	
 	protected String nom;
