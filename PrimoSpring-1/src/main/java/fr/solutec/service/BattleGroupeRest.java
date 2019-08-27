@@ -37,6 +37,8 @@ public class BattleGroupeRest {
 		return 	battleGroupRepos.findByDateEventAfter(d);
 	}
 	
+	
+	// BY GROUPE
 	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> EventDescByIdBar (@PathVariable Long id){
 		return battleGroupRepos.getBattleGroupeByBarId_Desc(id);
@@ -79,7 +81,34 @@ public class BattleGroupeRest {
 		return myFuturEvents;
 
 	}
+	@RequestMapping(value = "/battlegroupes/old/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> OldEventsBar (@PathVariable String name){
+		Date d = new Date();
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeByBarName_Desc(name);
+		List<BattleGroupe> OldEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().before(d)) {
+				OldEvents.add(bg);
+			}			
+		}
+		return OldEvents;
+	}
+	@RequestMapping(value = "/battlegroupes/futur/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> FuturEventsBar (@PathVariable String name){
+		Date d = new Date();
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeByBarName_ASC(name);
+		List<BattleGroupe> futurEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().after(d)) {
+				futurEvents.add(bg);
+			}			
+		}
+		return futurEvents;
+	}
 	
+	
+	
+	// BY GENRE
 	@RequestMapping(value = "/battlegroupe/{name}", method = RequestMethod.GET)
 	public List<BattleGroupe> EventDescByGenre (@PathVariable String name){
 		return battleGroupRepos.getBattleGroupeByGenreNom_Desc(name);
