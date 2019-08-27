@@ -31,6 +31,10 @@ public class BattleGroupeRest {
 	public List<BattleGroupe> getBattleGroupe(){
 		return battleGroupRepos.findAll();
 	}
+	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.GET)
+	public BattleGroupe getBattleGroupeById(@PathVariable Long id){
+		return battleGroupRepos.findOne(id);
+	}
 	@RequestMapping(value = "/battlegroupesfutur", method = RequestMethod.GET)
 	public List<BattleGroupe> getFutureBattlegroup(){
 		Date d = new Date();
