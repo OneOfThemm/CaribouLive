@@ -20,8 +20,10 @@ public interface BattleGroupeRepository extends JpaRepository<BattleGroupe, Long
 	
 	
 	@Query ("SELECT bg FROM BattleGroupe bg INNER JOIN bg.bar b  WHERE b.id = ?1 ORDER BY bg.dateEvent DESC")
-	public List<BattleGroupe> getBattleGroupeByBarId (@PathVariable Long id);
+	public List<BattleGroupe> getBattleGroupeByBarId_Desc (@PathVariable Long id);
 
+	@Query ("SELECT bg FROM BattleGroupe bg INNER JOIN bg.bar b  WHERE b.id = ?1 ORDER BY bg.dateEvent ASC")
+	public List<BattleGroupe> getBattleGroupeByBarId_ASC (@PathVariable Long id);
 	
 	
 	public List<BattleGroupe> getBattleGroupeByGenreNom (@PathVariable String nom);

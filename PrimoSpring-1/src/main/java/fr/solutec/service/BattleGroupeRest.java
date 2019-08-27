@@ -35,7 +35,7 @@ public class BattleGroupeRest {
 	
 	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyEvents (@PathVariable Long id){
-		return battleGroupRepos.getBattleGroupeByBarId(id);
+		return battleGroupRepos.getBattleGroupeByBarId_Desc(id);
 	}
 	
 
@@ -43,7 +43,7 @@ public class BattleGroupeRest {
 	public List<BattleGroupe> MyOldEvents (@PathVariable Long id){
 		Date d = new Date();
 		//Date yesterday = new Date(System.currentTimeMillis() - 1000L * 60L * 60L * 24L);
-		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
+		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId_Desc(id);
 		List<BattleGroupe> myOldEvents = new ArrayList<BattleGroupe>();
 		int nbEvent = 3;		
 				
@@ -63,7 +63,7 @@ public class BattleGroupeRest {
 	@RequestMapping(value = "/battlegroupes/futur/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyFuturEvents (@PathVariable Long id){
 		Date d = new Date();
-		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
+		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId_ASC(id);
 		List<BattleGroupe> myFuturEvents = new ArrayList<BattleGroupe>();
 		int nbEvent = 3;		
 				
