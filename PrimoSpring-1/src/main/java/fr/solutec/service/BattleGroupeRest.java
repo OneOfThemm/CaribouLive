@@ -83,6 +83,7 @@ public class BattleGroupeRest {
 	@RequestMapping(value = "/battlegroupesfutur", method = RequestMethod.GET)
 	public List<BattleGroupe> getFutureBattlegroup(){
 		Date d = new Date();
+
 		return 	battleGroupRepos.findByDateEventAfter(d);
 	}
 
