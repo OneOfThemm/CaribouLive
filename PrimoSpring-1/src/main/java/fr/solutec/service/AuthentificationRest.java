@@ -29,6 +29,7 @@ public class AuthentificationRest {
 	@Autowired
 	private GroupeRepository groupeRepo;
 
+
 	@RequestMapping(value = "/connexion/type/{mail:.+}", method = RequestMethod.GET)
 	public String getTypeUser(@PathVariable String mail) {
 		String type = "";
@@ -70,6 +71,8 @@ public class AuthentificationRest {
 		}
 		return type;
 	}
+	
+	
 
 	@RequestMapping(value = "/connexion/request/{mail:.+}/{mdp}", method = RequestMethod.GET)
 	public boolean getAuthentified(@PathVariable String mail, @PathVariable String mdp) {
