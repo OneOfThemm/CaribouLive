@@ -31,21 +31,25 @@ public class BattleGroupeRest {
 	public List<BattleGroupe> getBattleGroupe(){
 		return battleGroupRepos.findAll();
 	}
-	
-	
-	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.GET)
-	public List<BattleGroupe> MyEvents (@PathVariable Long id){
-		return battleGroupRepos.getBattleGroupeByBarId(id);
+	@RequestMapping(value = "/battlegroupesfutur", method = RequestMethod.GET)
+	public List<BattleGroupe> getFutureBattlegroup(){
+		Date d = new Date();
+		return 	battleGroupRepos.findByDateEventAfter(d);
 	}
 	
-
-	@RequestMapping(value = "/battlegroupes/old/{id}", method = RequestMethod.GET)
+	
+	// BY GROUPE
+	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.GET)
+	public List<BattleGroupe> EventDescByIdBar (@PathVariable Long id){
+		return battleGroupRepos.getBattleGroupeByBarId_Desc(id);
+	}
+		@RequestMapping(value = "/battlegroupes/old/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyOldEvents (@PathVariable Long id){
 		Date d = new Date();
 		//Date yesterday = new Date(System.currentTimeMillis() - 1000L * 60L * 60L * 24L);
-		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
+		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId_Desc(id);
 		List<BattleGroupe> myOldEvents = new ArrayList<BattleGroupe>();
-		int nbEvent = 3;		
+		int nbEvent = 100;		
 				
 		for (BattleGroupe bg : myEvents) {
 			if (myOldEvents.size()  >= nbEvent) {
@@ -58,14 +62,12 @@ public class BattleGroupeRest {
 		return myOldEvents;
 
 	}
-
-	
 	@RequestMapping(value = "/battlegroupes/futur/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> MyFuturEvents (@PathVariable Long id){
 		Date d = new Date();
-		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId(id);
+		List<BattleGroupe> myEvents = battleGroupRepos.getBattleGroupeByBarId_ASC(id);
 		List<BattleGroupe> myFuturEvents = new ArrayList<BattleGroupe>();
-		int nbEvent = 3;		
+		int nbEvent = 100;		
 				
 		for (BattleGroupe bg : myEvents) {
 			if (myFuturEvents.size()  >= nbEvent) {
@@ -79,12 +81,62 @@ public class BattleGroupeRest {
 		return myFuturEvents;
 
 	}
-	
-	@RequestMapping(value = "/battlegroupesfutur", method = RequestMethod.GET)
-	public List<BattleGroupe> getFutureBattlegroup(){
+	@RequestMapping(value = "/battlegroupes/old/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> OldEventsBar (@PathVariable String name){
 		Date d = new Date();
-
-		return 	battleGroupRepos.findByDateEventAfter(d);
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeByBarName_Desc(name);
+		List<BattleGroupe> OldEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().before(d)) {
+				OldEvents.add(bg);
+			}			
+		}
+		return OldEvents;
+	}
+	@RequestMapping(value = "/battlegroupes/futur/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> FuturEventsBar (@PathVariable String name){
+		Date d = new Date();
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeByBarName_ASC(name);
+		List<BattleGroupe> futurEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().after(d)) {
+				futurEvents.add(bg);
+			}			
+		}
+		return futurEvents;
+	}
+	
+	
+	
+	// BY GENRE
+	@RequestMapping(value = "/battlegroupe/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> EventDescByGenre (@PathVariable String name){
+		return battleGroupRepos.getBattleGroupeByGenreNom_Desc(name);
+	}
+	@RequestMapping(value = "/battlegroupe/old/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> OldEventsGenre (@PathVariable String name){
+		Date d = new Date();
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeByGenreNom_Desc(name);
+		List<BattleGroupe> OldEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().before(d)) {
+				OldEvents.add(bg);
+			}			
+		}
+		return OldEvents;
+	}
+	@RequestMapping(value = "/battlegroupe/futur/{name}", method = RequestMethod.GET)
+	public List<BattleGroupe> FuturEventsGenre (@PathVariable String name){
+		Date d = new Date();
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeByGenreNom_ASC(name);
+		List<BattleGroupe> futurEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().after(d)) {
+				futurEvents.add(bg);
+			}			
+		}
+		return futurEvents;
+>>>>>>> branch 'master' of https://github.com/OneOfThemm/CaribouLive
 	}
 
 }
