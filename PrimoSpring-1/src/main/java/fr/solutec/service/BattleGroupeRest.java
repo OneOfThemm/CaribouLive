@@ -43,7 +43,7 @@ public class BattleGroupeRest {
 	
 	
 	// BY GROUPE
-	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/battlegroupes/bybar/{id}", method = RequestMethod.GET)
 	public List<BattleGroupe> EventDescByIdBar (@PathVariable Long id){
 		return battleGroupRepos.getBattleGroupeByBarId_Desc(id);
 	}
