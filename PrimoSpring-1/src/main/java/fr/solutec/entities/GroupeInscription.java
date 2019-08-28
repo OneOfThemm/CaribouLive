@@ -19,14 +19,13 @@ public class GroupeInscription {
 	private boolean refused;
 
 	public GroupeInscription() {
-		this.refused=false;
 	}
 
-	public GroupeInscription(Groupe groupe, BattleGroupe event) {
+	public GroupeInscription(Groupe groupe, BattleGroupe event, boolean refused) {
 		super();
 		this.groupe = groupe;
 		this.event = event;
-		this.refused=false;
+		this.refused=refused;
 	}
 
 	public Long getId() {
@@ -52,6 +51,15 @@ public class GroupeInscription {
 	public void setEvent(BattleGroupe event) {
 		this.event = event;
 	}
+	
+	public boolean isRefused() {
+		return refused;
+	}
+
+	public void setRefused(boolean refused) {
+		this.refused = refused;
+	}
+	
 	
 	
 	
