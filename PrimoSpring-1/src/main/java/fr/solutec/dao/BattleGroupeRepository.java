@@ -19,7 +19,9 @@ public interface BattleGroupeRepository extends JpaRepository<BattleGroupe, Long
 	public List<BattleGroupe> findByDateEventBefore (Date date); 
 	public List<BattleGroupe> findByDateEventAfter (Date date);
 	
-	
+	//Client voir all events
+	@Query("SELECT bg FROM BattleGroupe bg WHERE bg.visibleClient =?1 ORDER BY bg.dateEvent ASC")
+	public List<BattleGroupe> getBattleGroupeClient(@PathVariable Boolean b);
 	
 	
 	
