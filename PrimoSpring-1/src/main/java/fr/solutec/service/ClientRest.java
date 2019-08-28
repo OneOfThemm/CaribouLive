@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import fr.solutec.dao.ClientRepository;
+import fr.solutec.entities.BattleGroupe;
 import fr.solutec.entities.Client;
 
 
@@ -67,6 +68,9 @@ public class ClientRest {
 		return c;
 	}
 	
-	
+	@RequestMapping(value = "/addclient", method = RequestMethod.POST)
+	public Client save(@RequestBody Client c){
+		return clientRepo.save(c);
+	}
 
 }
