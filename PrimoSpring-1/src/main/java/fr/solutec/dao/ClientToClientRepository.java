@@ -14,6 +14,8 @@ public interface ClientToClientRepository extends JpaRepository<ClientToClient, 
 	@Transactional
 	public void deleteById (@PathVariable Long id);
 	
+
+	
 	public ClientToClient findClientToClientById (@PathVariable Long id);
 	
 	public ClientToClient findClientToClientByClientEnvoi (@PathVariable Client c);

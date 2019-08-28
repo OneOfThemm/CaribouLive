@@ -81,7 +81,6 @@ public class ClientToClientRest {
 
 		return amis;
 	}
-
 	
 	//cette fonction récupere deux id client et supprime l'amitié qui existe entre eux si elle existe.
 	
@@ -97,9 +96,23 @@ public class ClientToClientRest {
 					|| (amis.getClientEnvoi().getId() == id2) && (amis.getClientRecu().getId() == id1)) {
 				amitie = amis;
 			}
-		}
-		
-		
+		}		
 		clientToClientRepo.deleteById(amitie.getId());
 	}
+	
+	@RequestMapping(value = "/friend/accept/{id1}/{id2}", method = RequestMethod.PUT)
+	public void AcceptThisFriend(@PathVariable Long id1, @PathVariable Long id2) {
+		ClientToClient amitie = new ClientToClient();
+		List<ClientToClient> amities = clientToClientRepo.findAll();
+		for (ClientToClient amis : amities) {
+			if ((amis.getClientEnvoi().getId() == id1) && (amis.getClientRecu().getId() == id2)
+					|| (amis.getClientEnvoi().getId() == id2) && (amis.getClientRecu().getId() == id1)) {
+				amitie = amis;
+			}
+		}		
+		amitie.setAccepted(true);
+		clientToClientRepo.save(amitie);
+	}
+	
+	
 }
