@@ -90,6 +90,12 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		clientToClientRepo.save(new ClientToClient(c1,c4,true));
 		clientToClientRepo.save(new ClientToClient(c3,c5,false));
 		clientToClientRepo.save(new ClientToClient(c1,c5,false));
+		clientToClientRepo.save(new ClientToClient(c2,c5,false));
+		clientToClientRepo.save(new ClientToClient(c3,c5,false));
+		clientToClientRepo.save(new ClientToClient(c4,c5,false));
+		clientToClientRepo.save(new ClientToClient(c4,c5,false));
+		clientToClientRepo.save(new ClientToClient(c6,c5,false));
+		clientToClientRepo.save(new ClientToClient(c7,c5,false));
 		
 		clientToClientRepo.save(new ClientToClient(c5,c2,true));
 		clientToClientRepo.save(new ClientToClient(c5,c4,true));

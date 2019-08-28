@@ -23,8 +23,7 @@ public interface BattleGroupeRepository extends JpaRepository<BattleGroupe, Long
 	@Query("SELECT bg FROM BattleGroupe bg WHERE bg.visibleClient =?1 ORDER BY bg.dateEvent ASC")
 	public List<BattleGroupe> getBattleGroupeClient(@PathVariable Boolean b);
 	
-	
-	
+		
 	// BY BAR 
 	@Query ("SELECT bg FROM BattleGroupe bg INNER JOIN bg.bar b  WHERE b.id = ?1 ORDER BY bg.dateEvent DESC")
 	public List<BattleGroupe> getBattleGroupeByBarId_Desc (@PathVariable Long id);
