@@ -157,6 +157,10 @@ public class BattleGroupeRest {
 	return battleGroupRepos.save(bg);
 }
 
-
-
+	
+	// Voir event futurs dispo pour client
+	@RequestMapping(value = "/battlegroupes/client", method = RequestMethod.GET)
+	public List<BattleGroupe> getBattleGroupeClient() {
+		return battleGroupRepos.getBattleGroupeClient(true);
+	}
 }
