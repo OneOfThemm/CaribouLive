@@ -149,4 +149,14 @@ public class BattleGroupeRest {
 		return b;
 	}
 
+	// rendre visible pour un client
+	@RequestMapping(value="/battleGroupesVisibleClient/{id}", method=RequestMethod.PUT)
+	public BattleGroupe rendreVisibleClient(@PathVariable Long id) {
+	BattleGroupe bg = battleGroupRepos.findById(id);
+	bg.setVisibleClient(true);
+	return battleGroupRepos.save(bg);
+}
+
+
+
 }
