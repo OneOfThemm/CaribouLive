@@ -15,14 +15,18 @@ public class GroupeInscription {
 	
 	@ManyToOne
 	private BattleGroupe event;
+	
+	private boolean refused;
 
 	public GroupeInscription() {
+		this.refused=false;
 	}
 
 	public GroupeInscription(Groupe groupe, BattleGroupe event) {
 		super();
 		this.groupe = groupe;
 		this.event = event;
+		this.refused=false;
 	}
 
 	public Long getId() {
