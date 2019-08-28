@@ -11,10 +11,10 @@ public class ClientToClient {
 	protected Long id;
 	
 	@ManyToOne
-	private Client ClientEnvoi;
+	private Client clientEnvoi;
 	
 	@ManyToOne
-	private Client ClientRecu;
+	private Client clientRecu;
 	
 	
 	private boolean accepted;	
@@ -26,25 +26,25 @@ public class ClientToClient {
 
 	public ClientToClient(Client clientEnvoi, Client clientRecu, boolean accepted) {
 		super();
-		ClientEnvoi = clientEnvoi;
-		ClientRecu = clientRecu;
+		this.clientEnvoi = clientEnvoi;
+		this.clientRecu = clientRecu;
 		this.accepted = accepted;
 	}
 
 	public Client getClientEnvoi() {
-		return ClientEnvoi;
+		return clientEnvoi;
 	}
 
 	public void setClientEnvoi(Client clientEnvoi) {
-		ClientEnvoi = clientEnvoi;
+		this.clientEnvoi = clientEnvoi;
 	}
 
 	public Client getClientRecu() {
-		return ClientRecu;
+		return clientRecu;
 	}
 
 	public void setClientRecu(Client clientRecu) {
-		ClientRecu = clientRecu;
+		this.clientRecu = clientRecu;
 	}
 
 	public boolean isAccepted() {
