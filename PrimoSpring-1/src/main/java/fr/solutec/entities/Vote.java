@@ -59,6 +59,22 @@ public class Vote {
 		return "Vote [id=" + id + ", client=" + client + ", groupe=" + groupe + ", battlgroupe=" + battlegroupe
 				+ ", getClient()=" + getClient() + ", getGroupe()=" + getGroupe() + ", getBattlgroupe()="
 				+ getBattlgroupe() + "]";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public BattleGroupe getBattlegroupe() {
+		return battlegroupe;
+	}
+
+	public void setBattlegroupe(BattleGroupe battlegroupe) {
+		this.battlegroupe = battlegroupe;
 	}	
 	
 	
