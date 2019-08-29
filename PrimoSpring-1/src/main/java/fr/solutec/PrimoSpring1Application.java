@@ -14,36 +14,35 @@ import fr.solutec.dao.BattleGroupeRepository;
 import fr.solutec.dao.ClientRepository;
 import fr.solutec.dao.ClientToClientRepository;
 import fr.solutec.dao.GenreRepository;
+import fr.solutec.dao.GroupeInscriptionRepository;
 import fr.solutec.dao.GroupeRepository;
+import fr.solutec.dao.VoteRepository;
 import fr.solutec.entities.Bar;
 import fr.solutec.entities.BattleGroupe;
 import fr.solutec.entities.Client;
 import fr.solutec.entities.ClientToClient;
 import fr.solutec.entities.Genre;
 import fr.solutec.entities.Groupe;
+import fr.solutec.entities.GroupeInscription;
+import fr.solutec.entities.Vote;
 
 @SpringBootApplication
 public class PrimoSpring1Application implements CommandLineRunner {
 	@Autowired
-	private BarRepository barRepo;
-	
-	
+	private BarRepository barRepo;	
 	@Autowired
-	private ClientRepository clientRepo;
-	
+	private ClientRepository clientRepo;	
 	@Autowired
-	private GroupeRepository groupeRepo;
-	
+	private GroupeRepository groupeRepo;	
 	@Autowired
-	private GenreRepository genreRepo;
-
-	
+	private GenreRepository genreRepo;	
 	@Autowired
-	private BattleGroupeRepository battleGroupRepo;
-	
-
+	private BattleGroupeRepository battleGroupRepo;	
 	@Autowired
-	private ClientToClientRepository clientToClientRepo;
+	private ClientToClientRepository clientToClientRepo;	
+	@Autowired
+	private VoteRepository voteRepo;
+	@Autowired GroupeInscriptionRepository groupeInscRepo;
 
 
 	public static void main(String[] args) {
@@ -116,13 +115,24 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		genreRepo.save(new Genre ("techno"));
 		
 		
-		groupeRepo.save(new Groupe("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr"));
-		groupeRepo.save(new Groupe("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr"));
-		groupeRepo.save(new Groupe("Gerard Lenorman", "ballade", "La ballade des gens heureux 1976",197.6,"maitre@gims.fr"));
-		groupeRepo.save(new Groupe("MPokora", "mathieu", "Vive Robin des bois",1500,"mathieuPokora@hotmail.fr"));
-		groupeRepo.save(new Groupe("Bigflo & Oli", "mdp", "Bigflo & Oli remportent le prix Album de musiques urbaines (La vie de rêve) & Artiste masculin",800,"bigflo.Oli@hotmail.fr"));
-		groupeRepo.save(new Groupe("Les enfoires", "coluche", "Les Enfoirés est un regroupement d'artistes et personnalités publiques (principalement francophones) créé en 1985 pour chanter au profit de l'association caritative des Restos du Cœur, créé par Coluche.",1705.95,"enfoires@restocoeur.fr"));
+		Groupe g1 = new Groupe ("Super Caribou", "caribou", "Le meilleur groupe de tous les temps",200,"caribou@caribou.fr");
+		Groupe g2 = new Groupe ("Marc Lavoine", "mlavoine", "les yeux revolver",185,"marcL@yahoo.fr");
+		Groupe g3 = new Groupe ("Gerard Lenorman", "ballade", "La ballade des gens heureux 1976",197.6,"maitre@gims.fr");
+		Groupe g4 = new Groupe ("MPokora", "mathieu", "Vive Robin des bois",1500,"mathieuPokora@hotmail.fr");
+		Groupe g5 = new Groupe ("Bigflo & Oli", "mdp", "Bigflo & Oli remportent le prix Album de musiques urbaines (La vie de rêve) & Artiste masculin",800,"bigflo.Oli@hotmail.fr");
+		Groupe g6 = new Groupe ("Les enfoires", "coluche", "Les Enfoirés est un regroupement d'artistes et personnalités publiques (principalement francophones) créé en 1985 pour chanter au profit de l'association caritative des Restos du Cœur, créé par Coluche.",1705.95,"enfoires@restocoeur.fr");
+		
+		
+		groupeRepo.save(g1);
+		groupeRepo.save(g2);
+		groupeRepo.save(g3);
+		groupeRepo.save(g4);
+		groupeRepo.save(g5);
+		groupeRepo.save(g6);
 
+		
+		
+		
 		Genre genre1 = new Genre("rock");
 		genreRepo.save(genre1);
 		
@@ -148,16 +158,32 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		
 		BattleGroupe b4 = new BattleGroupe(d.parse("20/01/2019"),"ccc","ccccccccccccc",700,5,12);
 		b4.setBar(bar1);
-		b4.setGenre(genre1);
+		b4.setGenre(genre1);		
+		battleGroupRepo.save(b4);		
+		b4.setVisibleClient(true);		
 		
-		battleGroupRepo.save(b4);	
+		GroupeInscription groupeInsc1 = new GroupeInscription(g1,b4,false);
+		GroupeInscription groupeInsc2 = new GroupeInscription(g2,b4,false);
+		GroupeInscription groupeInsc3 = new GroupeInscription(g6,b4,false);
 		
+		groupeInscRepo.save(groupeInsc1);
+		groupeInscRepo.save(groupeInsc2);
+		groupeInscRepo.save(groupeInsc3);
 		
-		
-		
-	
-	}
-	
-	
+		Vote v1 = new Vote(c1, g1, b4 );
+		Vote v2 = new Vote(c2, g1, b4 );
+		Vote v3 = new Vote(c3, g1, b4 );
+		Vote v4 = new Vote(c4, g2, b4 );
+		Vote v5 = new Vote(c5, g2, b4 );
+		Vote v6 = new Vote(c6, g6, b4 );
+		Vote v7 = new Vote(c7, g6, b4 );
 
+		voteRepo.save(v1);	
+		voteRepo.save(v2);	
+		voteRepo.save(v3);	
+		voteRepo.save(v4);	
+		voteRepo.save(v5);	
+		voteRepo.save(v6);	
+		voteRepo.save(v7);	
+		}
 }

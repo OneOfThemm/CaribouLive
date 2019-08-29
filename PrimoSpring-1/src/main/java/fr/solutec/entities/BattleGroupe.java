@@ -68,8 +68,6 @@ public class BattleGroupe extends Event {
 
 	public void setGenre(Genre genre) {
 		this.genre = genre;
-	}
-	
-	
+	}	
 	
 }
