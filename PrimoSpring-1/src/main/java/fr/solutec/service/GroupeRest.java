@@ -21,6 +21,7 @@ public class GroupeRest {
 	@Autowired
 	private GroupeRepository groupeRepos;
 	
+	@RequestMapping(value = "/groupes", method = RequestMethod.GET)
 	public List<Groupe> getGroupe(){
 		return groupeRepos.findAll();
 	}
@@ -29,6 +30,7 @@ public class GroupeRest {
 		return groupeRepos.findByNom(name);
 	}
 	
+	@RequestMapping(value = "/addgroupe", method = RequestMethod.POST)
 	public Groupe save (@RequestBody Groupe g) {
 		return groupeRepos.save(g);
 	}
