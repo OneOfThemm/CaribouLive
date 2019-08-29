@@ -113,4 +113,20 @@ public class ClientToClientRest {
 		amitie.setAccepted(true);
 		clientToClientRepo.save(amitie);
 	}	
+	
+	@RequestMapping(value = "/friend/create/{id1}/{id2}", method = RequestMethod.PUT)
+	public void CreateFriendship(@PathVariable Long id1, @PathVariable Long id2) {
+		ClientToClient amitie = new ClientToClient();
+		List<ClientToClient> amities = clientToClientRepo.findAll();
+		for (ClientToClient amis : amities) {
+			if ((amis.getClientEnvoi().getId() == id1) && (amis.getClientRecu().getId() == id2)
+					|| (amis.getClientEnvoi().getId() == id2) && (amis.getClientRecu().getId() == id1)) {
+				amitie = amis;
+			}
+		}		
+		amitie.setAccepted(true);
+		clientToClientRepo.save(amitie);
+	}
+	
+	
 }

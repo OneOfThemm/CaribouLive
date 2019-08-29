@@ -86,18 +86,14 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		//new Relation d'amitié (Client, Clien, boolean)
 		clientToClientRepo.save(new ClientToClient(c1,c2,true));
 		clientToClientRepo.save(new ClientToClient(c1,c3,true));
-		clientToClientRepo.save(new ClientToClient(c1,c4,true));
-		clientToClientRepo.save(new ClientToClient(c3,c5,false));
+		clientToClientRepo.save(new ClientToClient(c1,c4,true));	
 		clientToClientRepo.save(new ClientToClient(c1,c5,false));
-		clientToClientRepo.save(new ClientToClient(c2,c5,false));
 		clientToClientRepo.save(new ClientToClient(c3,c5,false));
-		clientToClientRepo.save(new ClientToClient(c4,c5,false));
 		clientToClientRepo.save(new ClientToClient(c4,c5,false));
 		clientToClientRepo.save(new ClientToClient(c6,c5,false));
-		clientToClientRepo.save(new ClientToClient(c7,c5,false));
-		
+		clientToClientRepo.save(new ClientToClient(c7,c5,false));		
 		clientToClientRepo.save(new ClientToClient(c5,c2,true));
-		clientToClientRepo.save(new ClientToClient(c5,c4,true));
+	
 		
 		
 		// Genre(String nom)
@@ -156,11 +152,12 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		
 		battleGroupRepo.save(b3);	
 		
-		BattleGroupe b4 = new BattleGroupe(d.parse("20/01/2019"),"ccc","ccccccccccccc",700,5,12);
+		BattleGroupe b4 = new BattleGroupe(d.parse("20/01/2019"),"Rock'Esic","Dernier concert pour retourner l'esic",700,5,12);
 		b4.setBar(bar1);
-		b4.setGenre(genre1);		
-		battleGroupRepo.save(b4);		
+		b4.setGenre(genre1);	
 		b4.setVisibleClient(true);		
+		battleGroupRepo.save(b4);		
+		
 		
 		GroupeInscription groupeInsc1 = new GroupeInscription(g1,b4,false);
 		GroupeInscription groupeInsc2 = new GroupeInscription(g2,b4,false);

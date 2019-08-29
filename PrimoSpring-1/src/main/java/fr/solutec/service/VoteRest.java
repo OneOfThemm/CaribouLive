@@ -137,8 +137,7 @@ public class VoteRest {
 				if(v.getClient().getId() == vote.getClient().getId()) {				
 					voteRepo.delete(vote.getId());		
 				}
-			}			
-		
+			}		
 		}
 	
 	//Fonction qui récupère le nombre de vote d'un groupe en fonction du groupe et de l'event
