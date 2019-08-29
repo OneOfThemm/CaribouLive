@@ -112,7 +112,5 @@ public class ClientToClientRest {
 		}		
 		amitie.setAccepted(true);
 		clientToClientRepo.save(amitie);
-	}
-	
-	
+	}	
 }

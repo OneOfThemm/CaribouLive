@@ -8,6 +8,7 @@ public interface BarRepository extends JpaRepository<Bar, Long> {
 
 	public Bar findByNom (String nom);
 	public Bar deleteById (@PathVariable Long id);
-	public Bar findByMail(String mail);		
+	public Bar findByMail(String mail);	
+	public Bar findById(Long id);
 
 }

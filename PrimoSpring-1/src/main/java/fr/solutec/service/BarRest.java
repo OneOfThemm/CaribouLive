@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.BarRepository;
 import fr.solutec.entities.Bar;
+
 import fr.solutec.entities.Client;
+
+import fr.solutec.entities.BattleGroupe;
+
 import fr.solutec.entities.Groupe;
 
 
@@ -33,9 +37,20 @@ public class BarRest {
 		return barRepos.findByMail(email);
 	} 	
 	
+
 	@RequestMapping(value = "/addbar", method = RequestMethod.POST)
 	public Bar save(@RequestBody Bar b){
 		return barRepos.save(b);
 	}
+
+
+	@RequestMapping(value = "/baredit", method = RequestMethod.POST)
+	public Bar updateBar(@RequestBody Bar bar) {
+		Long i = bar.getId();
+		Bar b = barRepos.findById(i);
+		b = barRepos.save(bar);
+		return b;
+	}
+	
 
 }
