@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.solutec.dao.BarRepository;
 import fr.solutec.entities.Bar;
+import fr.solutec.entities.BattleGroupe;
 import fr.solutec.entities.Groupe;
 
 
@@ -31,5 +33,12 @@ public class BarRest {
 		return barRepos.findByMail(email);
 	} 	
 	
+	@RequestMapping(value = "/baredit", method = RequestMethod.POST)
+	public Bar updateBar(@RequestBody Bar bar) {
+		Long i = bar.getId();
+		Bar b = barRepos.findById(i);
+		b = barRepos.save(bar);
+		return b;
+	}
 	
 }
