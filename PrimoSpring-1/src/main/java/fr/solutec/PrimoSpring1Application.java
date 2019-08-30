@@ -185,7 +185,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		Vote v7 = new Vote(c7, g6, b4 );
 
 		voteRepo.save(v1);	
-		voteRepo.save(v2);	
+
 		voteRepo.save(v3);	
 		voteRepo.save(v4);	
 		voteRepo.save(v5);	

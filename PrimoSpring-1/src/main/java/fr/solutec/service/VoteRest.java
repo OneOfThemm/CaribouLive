@@ -51,6 +51,30 @@ public class VoteRest {
 	}
 	
 	
+	//fonction qui vérifie si un USER A DEJA VOTE POUR UN EVENT !
+	
+	@RequestMapping(value = "/client/avote/{idclient}/{idbg}", method = RequestMethod.GET)	
+	public boolean alreadyvote(@PathVariable Long idbg,@PathVariable Long idclient) {		
+		//On récupère la battlegroupe grâce à l'ID de la requette
+		boolean avote = false;
+		
+		BattleGroupe bg;
+		bg =  bgRepos.findOne(idbg);
+		Client c = clientRepo.findById(idclient);		
+		List<Vote> votesBG = new ArrayList<Vote>(voteRepo.findByBattlegroupe(bg));
+		
+		for (Vote vote : votesBG) {
+			if (c.getId() == vote.getClient().getId()) {
+				avote = true;
+			}
+		}	
+		
+		return avote;		
+	}
+	
+	
+	
+	
 	//Fonction qui crée un vote à partir de trois IDs :IDCLIENT/IDGROUPE/IDBATTLEGROUPE
 	
 	@RequestMapping(value = "/votes/battlegroupe/{idClient}/{idGroupe}/{idBg}", method = RequestMethod.POST)	
@@ -114,7 +138,7 @@ public class VoteRest {
 	
 	}
 	
-	// FONCTION QUI CHANGE LE VOTE D'UN USER POUR UN NOUVEAUGROUPE A UN EVENT DONNÉ
+	// FONCTION QUI SUPPRIME LE VOTE D'UN USER POUR UN NOUVEAUGROUPE A UN EVENT DONNÉ
 		@RequestMapping(value = "/votes/delete/battlegroupe/{idClient}/{idBg}", method = RequestMethod.DELETE)	
 		public void DeleteVote(@PathVariable Long idClient, @PathVariable Long idBg) {			
 			BattleGroupe bg;
@@ -140,8 +164,7 @@ public class VoteRest {
 			}		
 		}
 	
-	//Fonction qui récupère le nombre de vote d'un groupe en fonction du groupe et de l'event
-	
+	//Fonction qui récupère le nombre de vote d'un groupe en fonction du groupe et de l'event	
 		@RequestMapping(value = "/votes/battlegroupe/{idBG}/groupe/{idGroupe}", method = RequestMethod.GET)	
 		public int nbVoteByGroup(@PathVariable Long idGroupe,@PathVariable Long idBG) {		
 			//On récupère la battlegroupe grâce à l'ID de la requette
@@ -158,5 +181,7 @@ public class VoteRest {
 			}			
 			return nbVotes;		
 		}	
+	
+		
 }
 	
