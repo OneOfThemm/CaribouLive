@@ -12,6 +12,7 @@ import fr.solutec.entities.ImageModel;
 import fr.solutec.entities.User;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @CrossOrigin("*")
@@ -19,26 +20,41 @@ import java.io.IOException;
 public class ImageRest {
 
 	@Autowired
-    ImageRepository imageRepository;
+    ImageRepository imageRepo;
 	@Autowired 
 	ClientRepository clientrepo;
-    @PostMapping("/uploadimage")
-    public ImageModel uploadImage(@RequestBody Long id, @ModelAttribute("myFile") MultipartFile file) throws IOException {
-    Client c = new Client();
-    c=clientrepo.findById(id);
+	
+	
+	
+	  @PostMapping("/uploadimage")
+	    public ImageModel uplaodImage(@RequestParam Long id, @RequestParam("myFile") MultipartFile file) throws IOException {
+
+		  Client c = new Client();
+		    c=clientrepo.findById(id);
+		      
+		      	 System.out.println(c.toString());
+	        ImageModel img = new ImageModel( file.getOriginalFilename(),file.getContentType(),file.getBytes(), c );
+
+
+	        final ImageModel savedImage = imageRepo.save(img);
+
+
+	        System.out.println("Image saved");
+
+
+	        return savedImage;
+
+
+	    }
+   
+    @RequestMapping(value = "/addimage", method = RequestMethod.POST)
+	public ImageModel save(@RequestBody ImageModel i){
+		return imageRepo.save(i);
+	}
     
-System.out.println(c.toString());
-        ImageModel img = new ImageModel( file.getOriginalFilename(),file.getContentType(),file.getBytes(), c );
-
-
-        final ImageModel savedImage = imageRepository.save(img);
-
-
-        System.out.println("Image saved");
-
-
-        return savedImage;
-
-
-    }
+    @RequestMapping(value = "/images", method = RequestMethod.GET)
+	public List<ImageModel> getImageModel() {
+		return imageRepo.findAll();
+	}
+	
 }

@@ -17,7 +17,6 @@ public class ImageModel {
     
     private String name;
     private String type;
-
     @Lob
     private byte[] pic;
     
@@ -30,6 +29,41 @@ public class ImageModel {
         this.name = name;
         this.type = type;
         this.pic = pic;
-        this.client=client;
+        this.client = client;
+        
     }
+    public ImageModel() {
+       
+        
+    }
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public byte[] getPic() {
+		return pic;
+	}
+	public void setPic(byte[] pic) {
+		this.pic = pic;
+	}
+	public Client getClient() {
+		return client;
+	}
+	public void setClient(Client client) {
+		this.client = client;
+	}
 }
