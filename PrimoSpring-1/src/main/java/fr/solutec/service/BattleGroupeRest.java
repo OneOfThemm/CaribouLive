@@ -158,8 +158,21 @@ public class BattleGroupeRest {
 }
 
 	
-	// Voir event futurs dispo pour client
+	// Voir event futurs dispo pour client	
 	@RequestMapping(value = "/battlegroupes/client", method = RequestMethod.GET)
+	public List<BattleGroupe> getBattleGroupeClientFutur() {
+		Date d = new Date();
+		List<BattleGroupe> allEvents = battleGroupRepos.getBattleGroupeClient(true);
+		List<BattleGroupe> futurEvents = new ArrayList<BattleGroupe>();
+		for (BattleGroupe bg : allEvents) {
+			if (bg.getDateEvent().after(d)) {
+				futurEvents.add(bg);
+			}
+		}
+		return futurEvents;
+	}
+	
+	@RequestMapping(value = "/battlegroupes/clientall", method = RequestMethod.GET)
 	public List<BattleGroupe> getBattleGroupeClient() {
 		return battleGroupRepos.getBattleGroupeClient(true);
 	}
