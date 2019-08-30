@@ -12,4 +12,5 @@ public interface GroupeInscriptionRepository extends JpaRepository<GroupeInscrip
 	public GroupeInscription findById(Long id);
 	public List<GroupeInscription> findByEventId(Long id);
 	public List<GroupeInscription> findByGroupeId(Long id);
+	
 }
