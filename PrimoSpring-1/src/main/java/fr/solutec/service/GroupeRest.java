@@ -45,5 +45,13 @@ public class GroupeRest {
 		groupeRepos.deleteById(id);
 		return true;
 	}
+	
+	@RequestMapping(value = "/groupeedit", method = RequestMethod.POST)
+	public Groupe updateClient(@RequestBody Groupe groupe) {
+		Long i = groupe.getId();
+		Groupe g = groupeRepos.findById(i);
+		g = groupeRepos.save(groupe);
+		return g;
+	}
 
 }
