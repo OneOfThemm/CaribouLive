@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import fr.solutec.dao.ClientRepository;
+import fr.solutec.entities.Bar;
 import fr.solutec.entities.Client;
 
 
@@ -70,5 +71,12 @@ public class ClientRest {
 		return clientRepo.save(c);
 	}
 	
+	@RequestMapping(value = "/clientedit", method = RequestMethod.POST)
+	public Client updateClient(@RequestBody Client client) {
+		Long i = client.getId();
+		Client c = clientRepo.findById(i);
+		c = clientRepo.save(client);
+		return c;
+	}
 	
 }
