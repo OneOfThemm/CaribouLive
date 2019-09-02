@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.solutec.dao.BattleGroupeRepository;
 import fr.solutec.entities.BattleGroupe;
 import fr.solutec.entities.Event;
+import fr.solutec.entities.GroupeInscription;
 
 @RestController
 @CrossOrigin("*")
@@ -176,4 +177,11 @@ public class BattleGroupeRest {
 	public List<BattleGroupe> getBattleGroupeClient() {
 		return battleGroupRepos.getBattleGroupeClient(true);
 	}
+	
+	@RequestMapping(value = "/battlegroupes/{id}", method = RequestMethod.DELETE)
+	public void deleteBattleGroup(@PathVariable Long id) {
+		battleGroupRepos.delete(id);
+	}
+	
+
 }
