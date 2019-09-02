@@ -103,4 +103,16 @@ public class GroupeInscriptionRest {
 		i.setRefused(true);
 		return i = groupeInscriptionRepos.save(i);
 	}
+	
+	@RequestMapping(value = "/deleteinscri/{event}/{groupe}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable Long event, @PathVariable Long groupe) {
+		List<GroupeInscription> all = groupeInscriptionRepos.findAll();
+		GroupeInscription todelete=null;
+		for (GroupeInscription element : all) {
+			if(element.getEvent().getId()==event && element.getGroupe().getId()==groupe) {
+				todelete=element;
+			}
+		}
+		groupeInscriptionRepos.delete(todelete);
+	}
 }
