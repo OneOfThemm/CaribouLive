@@ -85,7 +85,7 @@ public class GroupeInscriptionRest {
 			// Parcours les évènements où le groupe est inscrit: si ils sont dans les
 			// évènements futurs passe sub à true
 			for (GroupeInscription groupeInscription : inscri) {
-				if (battleGroupe.getId() == groupeInscription.getEvent().getId()) {
+				if (battleGroupe.getId() == groupeInscription.getEvent().getId() && !battleGroupe.isVisibleClient()) {
 					sub = true;
 				}
 			}
