@@ -163,8 +163,8 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		b3.setGenre(genre1);
 		
 		battleGroupRepo.save(b3);	
-		
-		BattleGroupe b4 = new BattleGroupe(d.parse("22/09/2019"),"Rock'Esic","Dernier concert pour retourner l'esic",700,5,12);
+	BattleGroupe b4 = new BattleGroupe(d.parse("22/09/2019"),"Rock'Esic","Dernier concert pour retourner l'esic",700,5,12);
+
 		b4.setBar(bar1);
 		b4.setGenre(genre1);	
 		b4.setVisibleClient(true);		
