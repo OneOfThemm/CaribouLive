@@ -23,6 +23,7 @@ import fr.solutec.entities.ClientToClient;
 import fr.solutec.entities.Groupe;
 import fr.solutec.entities.GroupeInscription;
 import fr.solutec.entities.Vote;
+import fr.solutec.entities.VoteCompteur;
 
 @RestController
 @CrossOrigin("*")
@@ -49,6 +50,15 @@ public class VoteRest {
 		List<Vote> votesBG = new ArrayList<Vote>(voteRepo.findByBattlegroupe(bg));
 		return votesBG;		
 	}
+	
+	
+	@RequestMapping(value = "/votes/battlegroupes/{id}", method = RequestMethod.GET)	
+	public List<Object> ret(@PathVariable Long id) {		
+		
+		return voteRepo.retourVote(id);	
+	}
+	
+	
 	
 	
 	//fonction qui vérifie si un USER A DEJA VOTE POUR UN EVENT !

@@ -2,7 +2,7 @@ package fr.solutec;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -27,6 +27,7 @@ import fr.solutec.entities.Groupe;
 import fr.solutec.entities.GroupeInscription;
 import fr.solutec.entities.ImageModel;
 import fr.solutec.entities.Vote;
+import fr.solutec.entities.VoteCompteur;
 
 @SpringBootApplication
 public class PrimoSpring1Application implements CommandLineRunner {
@@ -44,7 +45,9 @@ public class PrimoSpring1Application implements CommandLineRunner {
 	private ClientToClientRepository clientToClientRepo;	
 	@Autowired
 	private VoteRepository voteRepo;
-	@Autowired GroupeInscriptionRepository groupeInscRepo;
+	
+	@Autowired 
+	GroupeInscriptionRepository groupeInscRepo;
 	
 	@Autowired
 	private ImageRepository imageRepo;
@@ -161,7 +164,7 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		
 		battleGroupRepo.save(b3);	
 		
-		BattleGroupe b4 = new BattleGroupe(d.parse("20/01/2019"),"Rock'Esic","Dernier concert pour retourner l'esic",700,5,12);
+		BattleGroupe b4 = new BattleGroupe(d.parse("22/09/2019"),"Rock'Esic","Dernier concert pour retourner l'esic",700,5,12);
 		b4.setBar(bar1);
 		b4.setGenre(genre1);	
 		b4.setVisibleClient(true);		
@@ -191,5 +194,17 @@ public class PrimoSpring1Application implements CommandLineRunner {
 		voteRepo.save(v5);	
 		voteRepo.save(v6);	
 		voteRepo.save(v7);	
+		
+		
+		//List<Object> test = voteRepo.retourVote();
+		
+		// VoteCompteur vot = new VoteCompteur(test);
+		// String nomG;
+		
+		
+		
+		voteRepo.retourVote((long) 4).forEach(votejo -> {
+			System.out.println(votejo);
+		});
 		}
 }
